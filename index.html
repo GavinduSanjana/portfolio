@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <title>My Portfolio</title>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <style>
         /* Google Font */
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
@@ -19,6 +21,11 @@
         body {
             background: linear-gradient(135deg, #1d2671, #c33764);
             color: white;
+        }
+
+        html,
+        body {
+            overflow-x: hidden;
         }
 
         /* Navbar */
@@ -58,9 +65,11 @@
         }
 
         /* Hero Section Background Image */
+
         .hero {
             min-height: 145vh;
-            min-width: 80vw;
+            width: 100%;
+            overflow: hidden;
             /* increases height */
 
             background:
@@ -68,10 +77,14 @@
                 url('my_4to.jpeg');
 
             background-size: cover;
-            background-position-y: 35%;
+            background-position: center top;
             background-repeat: no-repeat;
 
             position: relative;
+        }
+
+        .mobile-bg {
+            display: none;
         }
 
 
@@ -180,7 +193,8 @@
         }
 
         img {
-            width: 400px;
+            width: 100%;
+            max-width: 400px;
             height: 220px;
             border: 1px solid white;
             border-radius: 8px;
@@ -263,13 +277,213 @@
         }
 
         /* Responsive */
-        @media(max-width: 768px) {
+        @media (max-width: 768px) {
+
+            html,
+            body {
+                overflow-x: hidden;
+                width: 100%;
+            }
+
+            body {
+                overflow-x: hidden;
+            }
+
             header {
+                padding: 15px 18px;
                 flex-direction: column;
+                gap: 12px;
+                text-align: center;
+            }
+
+            header h1 {
+                font-size: 34px;
             }
 
             nav {
-                margin-top: 10px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 14px;
+            }
+
+            nav a {
+                margin-left: 0;
+                font-size: 17px;
+            }
+
+            section {
+                padding: 90px 15px 50px;
+            }
+
+            /* HERO */
+            .hero {
+
+                min-height: auto;
+
+                background: none;
+
+                position: relative;
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                padding-top: 120px;
+                padding-bottom: 60px;
+            }
+
+            /* MOBILE IMAGE */
+            .mobile-bg {
+
+                display: block;
+
+                width: 100%;
+                height: auto;
+
+                object-fit: contain;
+
+                border-radius: 0;
+
+                border: none;
+
+                box-shadow: none;
+            }
+
+            /* HERO CARD */
+            .hero .card {
+
+                position: relative !important;
+
+                width: 92% !important;
+
+                left: auto !important;
+                bottom: auto !important;
+
+                transform: none !important;
+
+                margin-top: -120px;
+
+                z-index: 10;
+
+                backdrop-filter: blur(12px);
+            }
+
+            /* ICONS */
+            .icons {
+
+                position: relative !important;
+
+                left: auto !important;
+                bottom: auto !important;
+
+                width: 100%;
+
+                justify-content: center;
+
+                flex-wrap: wrap;
+
+                gap: 16px;
+
+                padding: 0 10px;
+            }
+
+            .icons img {
+                width: 42px;
+                height: 42px;
+            }
+
+            /* TEXT */
+            h1 {
+                font-size: 44px;
+                line-height: 1.2;
+            }
+
+            h2 {
+                font-size: 34px;
+            }
+
+            h3 {
+                font-size: 26px !important;
+            }
+
+
+            p {
+                font-size: 17px;
+                line-height: 1.9;
+            }
+
+
+            /* CARD */
+            .card {
+                width: 100%;
+                padding: 22px;
+            }
+
+            /* SKILLS */
+            .skills-container {
+                flex-direction: column;
+            }
+
+            .skill {
+                width: 100%;
+                font-size: 18px;
+            }
+
+            /* TAGS */
+            .tag-container {
+                flex-wrap: wrap;
+            }
+
+            .tags {
+                font-size: 15px;
+            }
+
+            /* PROJECT IMAGES */
+            .img-container,
+            .graphic-img-container {
+
+                justify-content: center;
+
+                padding: 10px;
+
+                gap: 22px;
+            }
+
+            img {
+                width: 100%;
+                max-width: 100%;
+                height: auto;
+            }
+
+            .graphic-img-container img {
+
+                width: 100%;
+                max-width: 340px;
+
+                height: auto;
+            }
+
+            /* FORM */
+            input,
+            textarea,
+            button {
+
+                width: 100%;
+
+                font-size: 16px;
+            }
+
+            /* FOOTER */
+            footer {
+                padding: 25px 18px;
+            }
+
+            footer h3 {
+
+                font-size: 15px;
+
+                line-height: 2;
             }
         }
     </style>
@@ -290,6 +504,9 @@
 
     <!-- About Section -->
     <section class="hero" id="about">
+
+        <img class="mobile-bg" src="my_4to.jpeg">
+
         <div class="card" style=" position: absolute; bottom: 320px; width: 92%; left: 80px;">
 
             <h1>Gavindu Sanjana</h1><br>
@@ -381,9 +598,9 @@
                     <div class="img-container">
 
                         <a
-                            href="https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/project_item/attachment/56065f102cdb5a7953cfaf87af401547-1776106539779/Screenshot%202026-04-13%20233820.copy.png">
+                            href="https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/project_item/attachment/5653e13af1e200495761c51c65f43365-1779721589598/Screenshot%202026-04-13%20233820.png">
                             <img
-                                src="https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/project_item/attachment/56065f102cdb5a7953cfaf87af401547-1776106539779/Screenshot%202026-04-13%20233820.copy.png"></a>
+                                src="https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/project_item/attachment/5653e13af1e200495761c51c65f43365-1779721589598/Screenshot%202026-04-13%20233820.png"></a>
                         <a
                             href="https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/project_item/attachment/01a9d7103144eff450d2019b3f1fb66e-1776106075706/Screenshot%202026-04-13%20233329.png">
                             <img
