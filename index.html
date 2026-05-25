@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>My Portfolio</title>
+
+    <style>
+        /* Google Font */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1d2671, #c33764);
+            color: white;
+        }
+
+        /* Navbar */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+
+        }
+
+        header h1 {
+            font-size: 32px;
+        }
+
+        nav a {
+            color: white;
+            margin-left: 20px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffcc70;
+        }
+
+        section {
+            min-height: 60vh;
+            padding: 120px 80px 70px;
+        }
+
+        /* Hero Section Background Image */
+        .hero {
+            min-height: 145vh;
+            min-width: 80vw;
+            /* increases height */
+
+            background:
+                linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url('images/my_4to.jpeg');
+
+            background-size: cover;
+            background-position-y: 35%;
+            background-repeat: no-repeat;
+
+            position: relative;
+        }
+
+
+        .icons img {
+            width: 40px;
+            height: 40px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            transition: 0.2s;
+        }
+
+        .icons img:hover {
+            transform: scale(1.15);
+
+        }
+
+        /* Glass Card */
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            transition: 0.4s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.02);
+        }
+
+        h1 {
+            font-size: 42px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            font-size: 32px;
+        }
+
+        /* About */
+        #about p {
+            line-height: 1.7;
+            font-size: 18px;
+        }
+
+        /* Skills */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .skill {
+            flex: 1 1 150px;
+            text-align: center;
+            padding: 20px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.15);
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+
+        /*projects*/
+
+        .project-container {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+
+
+        }
+
+        .project {
+            display: block;
+            padding: 20px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            transition: 0.4s;
+
+        }
+
+        .project:hover {
+            transform: translateY(-10px) scale(1.02);
+        }
+
+        .tag-container {
+            display: flex;
+            gap: 10px;
+        }
+
+        .tags {
+            text-align: center;
+            padding: 10px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+
+        .img-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            padding: 30px;
+        }
+
+        img {
+            width: 400px;
+            height: 220px;
+            border: 1px solid white;
+            border-radius: 8px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            transition: 0.4s;
+        }
+
+        img:hover {
+            transform: translateY(-12px) scale(1.02);
+        }
+
+
+        .graphic-img-container {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 30px;
+            gap: 30px;
+        }
+
+        .graphic-img-container img {
+            height: 500px;
+            width: 350px;
+            border: 1px solid white;
+            border-radius: 8px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            transition: 0.4s;
+
+        }
+
+        .graphic-img-container img:hover {
+            transform: translateY(-12px) scale(1.02);
+        }
+
+        /* Contact */
+
+        footer {
+            bottom: 0px;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px 50px;
+            align-items: center;
+            z-index: 1000;
+            width: 100%;
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input,
+        textarea {
+            margin-bottom: 15px;
+            padding: 12px;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+        }
+
+        button {
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            background: #ffcc70;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #ffd88c;
+            transform: scale(1.05);
+        }
+
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Responsive */
+        @media(max-width: 768px) {
+            header {
+                flex-direction: column;
+            }
+
+            nav {
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>My Portfolio</h1>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+
+        </nav>
+    </header>
+
+    <!-- About Section -->
+    <section class="hero" id="about">
+        <div class="card" style=" position: absolute; bottom: 320px; width: 92%; left: 80px;">
+
+            <h1>Gavindu Sanjana</h1><br>
+            <p>
+                I am an undergraduate in Bsc.(Hons) in Biotechnology at Horizon Campus and aslo an external
+                undergraduate in Bachelor of Information Technology(BIT) at University of Moratuwa. Have good knowledge
+                in Web Designing using Wordpress & Joomla and Graphic Designing using Adobe Illustrator, Adobe
+                Photoshop, Adobe Indesign & Corel Draw. I’m native in Sinhala and good in English. Skilled in problem
+                solving, team work and communication through the experience I gained from my previous job roles.
+            </p>
+        </div>
+
+        <div class="icons" style="position: absolute; bottom: 250px; left: 95px; display: flex; gap: 20px;">
+            <a href="https://gravatar.com/noisygenerouslyf236e9a59a"><img style="border-radius: 6px;"
+                    src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Gravatar-default-logo.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"></a>
+
+            <a href="www.linkedin.com/in/gavindu-sanjana-127938344"><img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/3840px-LinkedIn_icon.svg.png"></a>
+
+            <a href="https://www.fiverr.com/s/pdErD3y"><img
+                    src="https://upload.wikimedia.org/wikipedia/commons/a/a6/Fiverr_Logo_fiverr.png"></a>
+
+            <a href="https://www.facebook.com/share/1AgaQCEjAx/"><img style="width: 43px; height: 41px;"
+                    src="https://static.vecteezy.com/system/resources/thumbnails/016/716/481/small/facebook-icon-free-png.png"></a>
+
+            <a href="https://www.instagram.com/gavi_sana_?igsh=bzF0eWl0bjJoYWxi&utm_source=qr"><img
+                    style="width: 42px; height: 41px;"
+                    src="https://crystalpng.com/wp-content/uploads/2025/06/Instagram-02.png"></a>
+
+            <a href="https://x.com/GavinduSanjana"><img
+                    src="https://upload.wikimedia.org/wikipedia/commons/9/95/Twitter_new_X_logo.png"></a>
+
+        </div>
+
+
+
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="card">
+            <h2>Skills</h2>
+            <div class="skills-container">
+                <div class="skill">HTML</div>
+                <div class="skill">CSS</div>
+                <div class="skill">Java Script</div>
+                <div class="skill">jQuery</div>
+                <div class="skill">Git</div>
+            </div><br>
+            <div class="skills-container">
+                <div class="skill">Python</div>
+                <div class="skill">Linux</div>
+                <div class="skill">Word Press</div>
+                <div class="skill">Joomla</div>
+            </div><br>
+            <div class="skills-container">
+                <div class="skill">Adobe Illustrator</div>
+                <div class="skill">Adobe Photoshop</div>
+                <div class="skill">Adobe InDesign</div>
+                <div class="skill">Corel Draw</div>
+                <div class="skill">Canva</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" style="min-height: 140vh;">
+        <div class="project-card">
+            <h2>Projects</h2><br>
+            <div class="project-container">
+                <div class="project">
+                    <p>From: January 2026 </p>
+                    <br>
+
+                    <h3 style="font-size: 25px;">Simple 2D Game Development using HTML, CSS and JS</h3><br>
+
+                    <div class=tag-container>
+                        <div class="tags">Game Development</div>
+                        <div class="tags">Game Concept Design</div>
+                        <div class="tags">Game Art</div>
+                    </div><br>
+                    <p> Developed for JAVA INSTITUTE FOR ADVANCED TECHNOLOGY Selection Examination Project for the PCJT
+                        Software Engineering Degree. The Java Institute for Advanced Technology is a leading
+                        research-based higher education institute in Sri Lanka. I faced several challenges because I do
+                        not have complete knowledge of JavaScript related to game development at that time. Therefore, I
+                        seek help by watching YouTube videos,following free online courses in this field and using AI
+                        tools to obtain additional information as well.
+                    </p>
+                    <br>
+                    <div class="img-container">
+
+                        <a
+                            href="https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/project_item/attachment/56065f102cdb5a7953cfaf87af401547-1776106539779/Screenshot%202026-04-13%20233820.copy.png">
+                            <img
+                                src="https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/project_item/attachment/56065f102cdb5a7953cfaf87af401547-1776106539779/Screenshot%202026-04-13%20233820.copy.png"></a>
+                        <a
+                            href="https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/project_item/attachment/01a9d7103144eff450d2019b3f1fb66e-1776106075706/Screenshot%202026-04-13%20233329.png">
+                            <img
+                                src="https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/project_item/attachment/01a9d7103144eff450d2019b3f1fb66e-1776106075706/Screenshot%202026-04-13%20233329.png"></a>
+                        <a
+                            href="https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/project_item/attachment/606b9b66cf2c769fc073a094878e8677-1776106075734/Screenshot%202026-04-13%20233807.png">
+                            <img
+                                src="https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/project_item/attachment/606b9b66cf2c769fc073a094878e8677-1776106075734/Screenshot%202026-04-13%20233807.png"></a>
+                        <a
+                            href="https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/project_item/attachment/946a06c4ebf3c6663496edb51466a94c-1776106075747/Screenshot%202026-04-13%20233834.png">
+                            <img
+                                src="https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/project_item/attachment/946a06c4ebf3c6663496edb51466a94c-1776106075747/Screenshot%202026-04-13%20233834.png"></a>
+                        <a
+                            href="https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/project_item/attachment/c816767614fa441bd85cdec299ab975e-1776106075769/Screenshot%202026-04-13%20233906.png">
+                            <img
+                                src="https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/project_item/attachment/c816767614fa441bd85cdec299ab975e-1776106075769/Screenshot%202026-04-13%20233906.png"></a>
+                    </div>
+                </div><br>
+
+                <div class="project">
+                    <p>From: March 2026</p>
+                    <br>
+
+                    <h3 style="font-size: 25px;">Professional Vehicle Gallery Website</h3><br>
+
+                    <div class=tag-container>
+                        <div class="tags">Web Design</div>
+                        <div class="tags">Web Development</div>
+                        <div class="tags">HTML, CSS, JS</div>
+                    </div><br>
+                    <p> I developed a clean and modern vehicle gallery website focused on delivering a smooth and
+                        engaging user experience. The project showcases featured vehicles with an interactive card-based
+                        layout, allowing users to easily browse through different models.
+
+                        The website includes dynamic hover effects, image zoom animations, and interactive overlays that
+                        highlight key actions such as viewing more details. Each vehicle card is fully clickable and
+                        opens a responsive modal displaying additional information, creating a seamless browsing
+                        experience without navigating away from the page.
+
+                        The design features both light and dark themes, giving users the flexibility to choose their
+                        preferred viewing mode. A soft, minimal color palette is used in the light theme for visual
+                        comfort, while the dark theme provides a sleek and modern look suitable for extended browsing.
+
+                        The layout is responsive and adapts well across different screen sizes.
+
+                        Technologies used include HTML, CSS, and JavaScript, with a focus on smooth animations, clean
+                        structure, and user-friendly interaction.
+
+                        This project demonstrates my ability to create visually appealing, interactive, and
+                        user-centered web interfaces suitable for modern automotive or e-commerce platforms.
+                    </p>
+                    <br>
+                    <div class="img-container">
+
+                        <a
+                            href="https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/project_item/attachment/5b5588dc2820ebadbf60f61fa41730ca-1776257180509/Screenshot%202026-04-15%20181058.png">
+                            <img
+                                src="https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/project_item/attachment/5b5588dc2820ebadbf60f61fa41730ca-1776257180509/Screenshot%202026-04-15%20181058.png"></a>
+                        <a
+                            href="https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/project_item/attachment/ca974b91df4e0ee89b595cec0b1ba008-1776257180515/Screenshot%202026-04-15%20181126.png">
+                            <img
+                                src="https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/project_item/attachment/ca974b91df4e0ee89b595cec0b1ba008-1776257180515/Screenshot%202026-04-15%20181126.png"></a>
+                        <a
+                            href="https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/project_item/attachment/244c2480fac6fea018dfbc6cd1eb40c0-1776257180530/Screenshot%202026-04-15%20181206.png">
+                            <img
+                                src="https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/project_item/attachment/244c2480fac6fea018dfbc6cd1eb40c0-1776257180530/Screenshot%202026-04-15%20181206.png"></a>
+                        <a
+                            href="https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/project_item/attachment/170e8168a38d7e0996b795c498a71543-1776257180528/Screenshot%202026-04-15%20181235.png">
+                            <img
+                                src="https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/project_item/attachment/170e8168a38d7e0996b795c498a71543-1776257180528/Screenshot%202026-04-15%20181235.png"></a>
+                        <a
+                            href="https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/project_item/attachment/fd3d3512f2a21b1911395eed3be1a427-1776257180552/Screenshot%202026-04-15%20181253.png">
+                            <img
+                                src="https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/project_item/attachment/fd3d3512f2a21b1911395eed3be1a427-1776257180552/Screenshot%202026-04-15%20181253.png"></a>
+                    </div>
+                </div><br>
+
+                <div class="project">
+
+                    <p>From: March 2026</p>
+                    <br>
+
+                    <h3 style="font-size: 25px;">Graphic Designing Sample Works</h3><br>
+
+                    <div class=tag-container>
+                        <div class="tags">Graphic Design</div>
+                        <div class="tags">Post Design</div>
+                        <div class="tags">Adobe Photoshop & Illustrator </div>
+                        <div class="tags">Cover Page Design</div>
+                    </div><br>
+
+                    <p> Personal design projects developed for practice and creative exploration, showcasing my passion
+                        for graphic design and visual storytelling</p><br>
+
+                    <div class="graphic-img-container">
+
+                        <a
+                            href="https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/483502432/original/a896d33a5caba8f7c3d5a9c080da457f75ad60c5/create-eye-catching-professional-graphic-designs-for-your-business.png"><img
+                                src="https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/483502432/original/a896d33a5caba8f7c3d5a9c080da457f75ad60c5/create-eye-catching-professional-graphic-designs-for-your-business.png"></a>
+                        <a
+                            href="https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs2/483502432/original/e0836da92ae242ea15b2512dbdca98dfe937fcec/create-eye-catching-professional-graphic-designs-for-your-business.png"><img
+                                src="https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs2/483502432/original/e0836da92ae242ea15b2512dbdca98dfe937fcec/create-eye-catching-professional-graphic-designs-for-your-business.png"></a>
+
+                        <a
+                            href="https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs3/483502432/original/61c0b1f3fbed155351f5ac5fe8384adbdce9a37d/create-eye-catching-professional-graphic-designs-for-your-business.png">
+                            <img
+                                src="https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs3/483502432/original/61c0b1f3fbed155351f5ac5fe8384adbdce9a37d/create-eye-catching-professional-graphic-designs-for-your-business.png">
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="card">
+            <h2>Contact Me</h2>
+
+            <form action="https://formsubmit.co/ajax/thiseraprasantha@gmail.com" method="POST">
+
+                <input type="hidden" name="_captcha" value="false">
+
+                <input type="text" name="name" placeholder="Your Name" required>
+
+                <input type="email" name="email" placeholder="Your Email" required>
+
+                <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+
+                <button type="submit">Send Message</button>
+
+            </form>
+        </div>
+    </section>
+
+
+    <footer>
+
+        <h3>Contact Number : +94 71 381 4422 &nbsp;&nbsp; | &nbsp;&nbsp; Whatsapp : &nbsp;<a
+                href="https://wa.me/94782004801">
+                +94 78 200 4801</a> &nbsp;&nbsp; |
+            &nbsp;&nbsp; Email : &nbsp; <a href="mailto:gavindu185@gmail.com">gavindu185@gmail.com</a></h3>
+
+    </footer>
+
+
+
+
+</body>
+
+</html>
